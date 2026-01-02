@@ -1,0 +1,217 @@
+CREATE TABLE actor (
+  act_id INT AUTO_INCREMENT PRIMARY KEY,
+  act_fname VARCHAR(50),
+  acrt_lname VARCHAR(50),
+  act_gender CHAR(1)
+);
+
+CREATE TABLE director (
+  dir_id INT AUTO_INCREMENT PRIMARY KEY,
+  dir_fname VARCHAR(50),
+  dir_lname VARCHAR(50)
+);
+
+CREATE TABLE genres (
+  gen_id INT AUTO_INCREMENT PRIMARY KEY,
+  gen_title VARCHAR(50)
+);
+
+CREATE TABLE movie (
+  mov_id INT AUTO_INCREMENT PRIMARY KEY,
+  mov_title VARCHAR(100),
+  mov_year INT,
+  mov_time INT,
+  mov_lang VARCHAR(30),
+  mov_dt_rel DATE,
+  mov_rel_country VARCHAR(10)
+);
+
+CREATE TABLE movie_reviewer (
+  rev_id INT AUTO_INCREMENT PRIMARY KEY,
+  rev_name VARCHAR(100)
+);
+
+CREATE TABLE movie_cast (
+  act_id INT,
+  mov_id INT,
+  role VARCHAR(100),
+  FOREIGN KEY (act_id) REFERENCES actor(act_id),
+  FOREIGN KEY (mov_id) REFERENCES movie(mov_id)
+);
+
+CREATE TABLE movie_direction (
+  dir_id INT,
+  mov_id INT,
+  FOREIGN KEY (dir_id) REFERENCES director(dir_id),
+  FOREIGN KEY (mov_id) REFERENCES movie(mov_id)
+);
+
+CREATE TABLE movie_genres (
+  mov_id INT,
+  gen_id INT,
+  FOREIGN KEY (mov_id) REFERENCES movie(mov_id),
+  FOREIGN KEY (gen_id) REFERENCES genres(gen_id)
+);
+
+CREATE TABLE movie_rating (
+  mov_id INT,
+  rev_id INT,
+  rev_stars DECIMAL(3,1),
+  num_o_ratings INT,
+  FOREIGN KEY (mov_id) REFERENCES movie(mov_id),
+  FOREIGN KEY (rev_id) REFERENCES movie_reviewer(rev_id)
+);
+
+------------------------------------- 
+
+INSERT INTO actor (act_fname, acrt_lname, act_gender) VALUES
+('James','Stewart','M'),
+('Deborah','Kerr','F'),
+('Peter','OToole','M'),
+('Robert','De Niro','M'),
+('F. Murray','Abraham','M'),
+('Harrison','Ford','M'),
+('Nicole','Kidman','F'),
+('Stephen','Baldwin','M'),
+('Jack','Nicholson','M'),
+('Mark','Wahlberg','M'),
+('Woody','Allen','M'),
+('Claire','Danes','F'),
+('Tim','Robbins','M'),
+('Kevin','Spacey','M'),
+('Kate','Winslet','F'),
+('Robin','Williams','M'),
+('Jon','Voight','M'),
+('Ewan','McGregor','M'),
+('Christian','Bale','M'),
+('Maggie','Gyllenhaal','F'),
+('Dev','Patel','M'),
+('Sigourney','Weaver','F'),
+('David','Aston','M'),
+('Ali','Astin','F');
+
+INSERT INTO director (dir_fname, dir_lname) VALUES
+('Alfred','Hitchcock'),
+('Jack','Clayton'),
+('David','Lean'),
+('Michael','Cimino'),
+('Milos','Forman'),
+('Ridley','Scott'),
+('Stanley','Kubrick'),
+('Bryan','Singer'),
+('Roman','Polanski'),
+('Paul','Thomas Anderson'),
+('Woody','Allen'),
+('Hayao','Miyazaki'),
+('Frank','Darabont'),
+('Sam','Mendes'),
+('James','Cameron'),
+('Gus','Van Sant'),
+('John','Boorman'),
+('Danny','Boyle'),
+('Christopher','Nolan'),
+('Richard','Kelly'),
+('Kevin','Spacey'),
+('Andrei','Tarkovsky'),
+('Peter','Jackson');
+
+INSERT INTO genres (gen_title) VALUES
+('Action'),('Adventure'),('Animation'),('Biography'),
+('Comedy'),('Crime'),('Drama'),('Horror'),
+('Music'),('Mystery'),('Romance'),('Thriller'),('War');
+
+INSERT INTO movie (mov_title,mov_year,mov_time,mov_lang,mov_dt_rel,mov_rel_country) VALUES
+('Vertigo',1958,128,'English','1958-08-24','UK'),
+('The Innocents',1961,100,'English','1962-02-19','SW'),
+('Lawrence of Arabia',1962,216,'English','1962-12-11','UK'),
+('The Deer Hunter',1978,183,'English','1979-03-08','UK'),
+('Amadeus',1984,160,'English','1985-01-07','UK'),
+('Blade Runner',1982,117,'English','1982-09-09','UK'),
+('Eyes Wide Shut',1999,159,'English',NULL,'UK'),
+('The Usual Suspects',1995,106,'English','1995-08-25','UK'),
+('Chinatown',1974,130,'English','1974-08-09','UK'),
+('Boogie Nights',1997,155,'English','1998-02-16','UK'),
+('Annie Hall',1977,93,'English','1977-04-20','USA'),
+('Princess Mononoke',1997,134,'Japanese','2001-10-19','UK'),
+('The Shawshank Redemption',1994,142,'English','1995-02-17','UK'),
+('American Beauty',1999,122,'English',NULL,'UK'),
+('Titanic',1997,194,'English','1998-01-23','UK'),
+('Good Will Hunting',1997,126,'English','1998-06-03','UK'),
+('Deliverance',1972,109,'English','1982-10-05','UK'),
+('Trainspotting',1996,94,'English','1996-02-23','UK'),
+('The Prestige',2006,130,'English','2006-11-10','UK'),
+('Donnie Darko',2001,113,'English',NULL,'UK'),
+('Slumdog Millionaire',2008,120,'English','2009-01-09','UK'),
+('Aliens',1986,137,'English','1986-08-29','UK'),
+('Beyond the Sea',2004,118,'English','2004-11-26','UK'),
+('Avatar',2009,162,'English','2009-12-17','UK'),
+('Seven Samurai',1954,207,'Japanese','1954-04-26','JP'),
+('Spirited Away',2001,125,'Japanese','2003-09-12','UK'),
+('Back to the Future',1985,116,'English','1985-12-04','UK'),
+('Braveheart',1995,178,'English','1995-09-08','UK');
+
+INSERT INTO movie_reviewer (rev_name) VALUES
+('Righty Sock'),('Jack Malvern'),('Flagrant Baronessa'),
+('Alec Shaw'),(NULL),('Victor Woeltjen'),
+('Simon Wright'),('Neal Wruck'),('Paul Monks'),
+('Mike Salvati'),(NULL),('Wesley S. Walker'),
+('Sasha Goldshtein'),('Josh Cates'),('Krug Stillo'),
+('Scott LeBrun'),('Hannah Steele'),('Vincent Cadena'),
+('Brandt Sponseller'),('Richard Adams');
+
+INSERT INTO movie_cast (act_id,mov_id,role) VALUES
+(1,1,'John Scottie Ferguson'),
+(2,2,'Miss Giddens'),
+(3,3,'T.E. Lawrence'),
+(4,4,'Michael'),
+(5,5,'Antonio Salieri'),
+(6,6,'Rick Deckard'),
+(7,7,'Alice Harford'),
+(8,8,'McManus'),
+(10,10,'Eddie Adams'),
+(11,11,'Alvy Singer'),
+(12,12,'San'),
+(13,13,'Andy Dufresne'),
+(14,14,'Lester Burnham'),
+(15,15,'Rose DeWitt Bukater'),
+(16,16,'Sean Maguire'),
+(17,17,'Ed'),
+(18,18,'Renton'),
+(20,20,'Elizabeth Darko'),
+(21,21,'Older Jamal'),
+(22,22,'Ripley'),
+(14,23,'Bobby Darin'),
+(9,9,'J.J. Gittes'),
+(19,9,'Alfred Borden');
+
+INSERT INTO movie_direction (dir_id,mov_id) VALUES
+(1,1),(2,2),(3,3),(4,4),(5,5),(6,6),(7,7),(8,8),
+(9,9),(10,10),(11,11),(12,12),(13,13),(14,14),
+(15,15),(16,16),(17,17),(18,18),(19,19),(20,20),
+(18,21),(15,22),(21,23);
+
+INSERT INTO movie_genres (mov_id,gen_id) VALUES
+(22,1),(17,2),(3,2),(12,3),(11,5),(8,6),(13,6),
+(26,7),(28,7),(18,7),(21,7),(2,8),(23,9),
+(7,10),(27,10),(1,10),(14,11),(6,12),(4,13);
+
+INSERT INTO movie_rating (mov_id,rev_id,rev_stars,num_o_ratings) VALUES
+(1,1,8.4,263575),
+(2,2,7.9,20207),
+(3,3,8.3,202778),
+(6,5,8.2,484746),
+(24,6,7.3,NULL),
+(8,7,8.6,779489),
+(9,8,NULL,227235),
+(10,9,3.0,195961),
+(11,10,8.1,203875),
+(12,11,8.4,NULL),
+(14,13,7.0,862618),
+(15,1,7.7,830095),
+(16,14,4.0,642132),
+(25,15,7.7,81328),
+(18,16,NULL,580301),
+(20,17,8.1,609451),
+(21,18,8.0,667758),
+(22,19,8.4,511613),
+(23,20,6.7,13091);
