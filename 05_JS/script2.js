@@ -24,3 +24,8 @@ function print_series()
 
 print_series();
 
+let no = Number("some text")
+console.log(no);
+
+
+
