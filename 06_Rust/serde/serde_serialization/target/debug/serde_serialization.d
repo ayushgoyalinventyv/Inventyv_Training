@@ -1,0 +1,1 @@
+/home/ayush/Inventyv_Training/Inventyv_Training/06_Rust/serde/serde_serialization/target/debug/serde_serialization: /home/ayush/Inventyv_Training/Inventyv_Training/06_Rust/serde/serde_serialization/src/main.rs
