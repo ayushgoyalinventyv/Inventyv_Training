@@ -1,0 +1,1 @@
+/home/ayush/Inventyv_Training/Inventyv_Training/06_Rust/generic_trait_exercise/target/debug/generic_trait_exercise: /home/ayush/Inventyv_Training/Inventyv_Training/06_Rust/generic_trait_exercise/src/main.rs
