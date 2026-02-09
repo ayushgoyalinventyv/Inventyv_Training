@@ -10,7 +10,6 @@ trait DisplayItem {
     fn display(&self) -> String;
 }
 
-#[derive(Clone)]
 struct Product{
     id: String,
     name: String,
