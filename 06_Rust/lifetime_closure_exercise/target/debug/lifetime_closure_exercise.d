@@ -1,0 +1,1 @@
+/home/ayush/Inventyv_Training/Inventyv_Training/06_Rust/lifetime_closure_exercise/target/debug/lifetime_closure_exercise: /home/ayush/Inventyv_Training/Inventyv_Training/06_Rust/lifetime_closure_exercise/src/main.rs
