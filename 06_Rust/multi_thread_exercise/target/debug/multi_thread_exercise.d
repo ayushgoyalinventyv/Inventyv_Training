@@ -1,0 +1,1 @@
+/home/ayush/Inventyv_Training/Inventyv_Training/06_Rust/multi_thread_exercise/target/debug/multi_thread_exercise: /home/ayush/Inventyv_Training/Inventyv_Training/06_Rust/multi_thread_exercise/src/main.rs

@@ -1,0 +1,8 @@
+[package]
+name = "multi_thread_exercise"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+chrono = "0.4"
+lazy_static = "1.5"

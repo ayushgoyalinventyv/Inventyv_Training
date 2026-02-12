@@ -81,7 +81,7 @@ fn main() {
         Err(error) => println!("Insertion Failed , {:?}",error)
     }
 
-    let display_closure = || {
+    let display_closure = ||{
         if inv.item.is_empty(){
             return "Inventory is empty.".to_string(); 
         }
