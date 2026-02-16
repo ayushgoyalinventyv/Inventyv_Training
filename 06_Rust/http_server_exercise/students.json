@@ -1,0 +1,32 @@
+[
+  {
+    "id": "35da138a-e310-4cde-bab9-17b5ff5f3b17",
+    "name": "Aman",
+    "email": "aman@example.com",
+    "mobile": "9876543210"
+  },
+  {
+    "id": "8c6b9609-fe44-44d4-a258-d628139176d9",
+    "name": "Test User",
+    "email": "test@example.com",
+    "mobile": "9999999999"
+  },
+  {
+    "id": "8c649f84-1996-4893-b324-3528b65eab64",
+    "name": "Test User",
+    "email": "test@example.com",
+    "mobile": "9999999999"
+  },
+  {
+    "id": "e2c9e290-a3ee-4dbf-a3e6-d5f1342c0064",
+    "name": "Test User",
+    "email": "test@example.com",
+    "mobile": "9999999999"
+  },
+  {
+    "id": "549b0d3f-4597-47d9-a5fd-c66ff1bedb70",
+    "name": "Test User",
+    "email": "test@example.com",
+    "mobile": "9999999999"
+  }
+]
